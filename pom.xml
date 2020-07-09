@@ -19,9 +19,7 @@
 	<properties>
 		<java.version>11</java.version>
 
-		<!-- Cache Guava -->
-		<guava.version>19.0</guava.version>
-		<!-- thumbnailator - Gerar Thumbnail -->
+			<!-- thumbnailator - Gerar Thumbnail -->
 		<!-- https://github.com/coobird/thumbnailator -->
 		<thumbnailator.version>0.4.8</thumbnailator.version>
 	</properties>
@@ -75,13 +73,6 @@
 			<groupId>net.coobird</groupId>
 			<artifactId>thumbnailator</artifactId>
 			<version>${thumbnailator.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<!-- Cache Guava -->
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${guava.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
