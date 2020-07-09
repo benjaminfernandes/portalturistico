@@ -1,4 +1,4 @@
-# portalturistico (Em desenvolvimento)
+# Portal Turistico (Em desenvolvimento)
 Portal para informações turísticas do Município de Guaíra.
 No portal constará hotéis, restaurantes, agências, atrativos e rotas turísticas, além de contar a história de Guaíra.
 
