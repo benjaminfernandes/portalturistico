@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/LayoutPadraoSite}">
+	
+	<section layout:fragment="conteudo">
+	
+	<div class="page-header">
+		<div class="container">
+			<div class="row">
+	    	<nav aria-label="breadcrumb" class="col-xs-12 col-sm-12 col-md-6">
+ 				<ol class="breadcrumb nav-breadcrumb">
+    				<li class="breadcrumb-item"><a th:href="@{/}">Início</a></li>
+    				<li class="breadcrumb-item"><a th:href="@{/ListaAtrativos}">Atrativos</a></li>
+  				</ol>
+			</nav>
+		</div>
+		
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h1 th:text="${atrativo.nome}"></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+	
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-justify">
+				<div>
+					<img align="right" class="img-fluid  img-atrativo-capa" 
+						th:src="@{/fotos/thumbnail.{foto}(foto=${atrativo.fotoCapa})}" alt="">
+					<p th:utext="${atrativo.descricaoHtml}"></p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12 col-md-12 col-lg-12 text-justify">
+				<h4>Horário de atendimento</h4>
+				<p th:utext="${atrativo.horarioHtml}"></p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb" th:each="img : ${galeria}">
+                <a class="thumbnail" th:href="@{/fotos/thumbnail.{foto}(foto=${img.nome})}" data-image-id="" data-toggle="modal" data-title=""
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         th:src="@{/fotos/thumbnail.{foto}(foto=${img.nome})}">
+                </a>
+            </div>
+		</div>
+		
+			<div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="image-gallery-title"></h4>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-galeria btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                        </button>
+
+                        <button type="button" id="show-next-image" class="btn-galeria btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+	</div>
+	
+</section>
+<th:block layout:fragment="javascript-extra">
+	<script th:src="@{/javascripts/portal.galeria.js}"></script>
+</th:block>
+</html>

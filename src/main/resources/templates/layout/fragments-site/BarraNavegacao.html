@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+	
+	<nav class="navbar navbar-expand-md navbar-dark  navbar-default bg-light-nav fixed-top" th:fragment="navbar">
+		
+		<div class="container">
+			<div class="logo-principal">
+				<a th:href="@{/}"><img alt="logo"
+					th:src="@{/images/logo.png}" /></a>
+			</div>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarToggler" aria-controls="navbarToggler"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarToggler">
+			
+				<ul class="navbar-nav ml-auto">
+
+					<li class="nav-item dropdown active">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Guaíra <b class="caret"></b>
+					</a>
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Turismo em Guaíra</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Nossa História</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Compras em Guaíra</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Compras no Paraguai</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Artesanato</a>
+						</div>
+					</li>
+
+					<li class="nav-item dropdown active">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Galeria <b class="caret"></b>
+						</a>
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Galeria de fotos</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Galeria de vídeos</a>
+						</div></li>
+
+					<li class="nav-item dropdown active">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Dúvidas e dicas <b class="caret"></b>
+					</a>
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Onde comer?</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Onde dormir?</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Informações Úteis</a>
+						</div></li>
+
+					<li class="nav-item active"><a class="nav-link" href="#">Contato</a></li>
+				</ul>
+				</div>
+			</div>
+	</nav>
+</html>

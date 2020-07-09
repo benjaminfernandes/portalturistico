@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/LayoutPadrao}"
+	xmlns:portal="http://ti.guaira.pr.gov.br">
+
+<head>
+<title>Cadastro Gastronomia</title>
+</head>
+<section layout:fragment="conteudo">
+	<div class="page-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-10">
+					<h1 th:if="${gastronomia.novo}">Cadastro gastronômico</h1>
+					<h1 th:unless="${gastronomia.novo}"
+						th:text="|Edição - ${gastronomia.nome}|"></h1>
+				</div>
+				<div class="col-xs-2">
+					<div class="aw-page-header-controls">
+						<a class="btn btn-default" th:href="@{/gastronomias}"> <i
+							class="glyphicon glyphicon-search"></i> <span
+							class="hidden-xs  hidden-sm">Pesquisa</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+
+		<form method="POST" th:object="${gastronomia}" class="form-vertical  js-form-loading"
+			th:action="${gastronomia.novo} ? @{/gastronomias/novo} : @{/gastronomias/{codigo}(codigo=${gastronomia.codigo})}">
+
+			<input type="hidden" th:field="*{codigo}" />
+
+			<div layout:insert="fragments/Mensagem"></div>
+			<div layout:insert="fragments/MensagemErro"></div>
+
+			<div class="row  bw-required">
+				<div class="col-sm-12  form-group" portal:classforerror="nome">
+					<label for="nome" class="control-label">Nome</label> <input
+						id="nome" type="text" class="form-control" th:field="*{nome}" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group  col-sm-6  bw-required" portal:classforerror="tiposGastronomias">
+					<label class="control-label">Tipos</label> 
+					<div>
+						<th:block th:each="tipo : ${tipos}">
+  							<div class="checkbox-inline"> 
+	    						<input type="checkbox" th:value="${tipo.codigo}" th:field="*{tiposGastronomias}" />
+	    						<label th:for="${#ids.prev('tiposGastronomias')}" th:text="${tipo.nome}"></label>
+    						</div>
+    					<th:block>
+					</div>
+				</div>
+			</div>
+
+			<div class="row  bw-required">
+				<div class="col-sm-12  form-group" portal:classforerror="site">
+					<label for="site" class="control-label">Site</label> <input
+						id="site" type="text" class="form-control" th:field="*{site}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10">
+					<h1>Endereço</h1>
+				</div>
+			</div>
+			<div class="row  bw-required">
+				<div class="col-sm-8  form-group"
+					portal:classforerror="endereco.logradouro">
+					<label for="logradouro" class="control-label">Logradouro</label> <input
+						id="logradouro" type="text" class="form-control"
+						th:field="*{endereco.logradouro}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="endereco.numero">
+					<label for="numero" class="control-label">Número</label> <input
+						id="numero" type="text" class="form-control"
+						th:field="*{endereco.numero}" />
+				</div>
+
+			</div>
+			<div class="row  bw-required">
+				<div class="col-sm-4  form-group"
+					portal:classforerror="endereco.bairro">
+					<label for="bairro" class="control-label">Bairro</label> <input
+						id="bairro" type="text" class="form-control"
+						th:field="*{endereco.bairro}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="endereco.cep">
+					<label for="cep" class="control-label">CEP</label> <input id="cep"
+						type="text" class="form-control  js-cep"
+						th:field="*{endereco.cep}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="endereco.complemento">
+					<label for="complemento" class="control-label">Complemento</label>
+					<input id="complemento" type="text" class="form-control"
+						th:field="*{endereco.complemento}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10">
+					<h1>Contato</h1>
+				</div>
+			</div>
+			<div class="row  bw-required">
+				<div class="col-sm-4  form-group"
+					portal:classforerror="contato.telefone">
+					<label for="telefone" class="control-label">Telefone</label> <input
+						id="telefone" type="text" class="form-control  js-phone-number"
+						th:field="*{contato.telefone}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="contato.celular">
+					<label for="celular" class="control-label">Celular</label> <input
+						id="celular" type="text" class="form-control  js-cel-number"
+						th:field="*{contato.celular}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="contato.email">
+					<label for="email" class="control-label">E-mail</label> <input
+						id="email" type="text" class="form-control"
+						th:field="*{contato.email}" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group  col-sm-12">
+					<input type="hidden" th:field="*{foto}"> <input
+						type="hidden" th:field="*{contentType}"> <input
+						type="hidden" th:field="*{novaFoto}"> <label
+						class="control-label">Foto Principal</label>
+
+					<div class="js-container-foto-principal"
+						th:attr="data-url-fotos=@{/fotos}">
+						<div id="upload-drop" class="py-upload">
+							<i class="glyphicon glyphicon-cloud-upload"></i> <span>Arraste
+								a foto aqui ou</span> <a class="py-upload-form-file">selecione <input
+								id="upload-select" type="file" accept=".jpg, .jpeg, .png" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<button class="btn  btn-primary  js-btn-submit" type="submit">Salvar</button>
+			</div>
+		</form>
+	</div>
+	
+	<th:block th:include="hbs/FotoHospedagem"></th:block>
+</section>
+<th:block layout:fragment="javascript-extra">
+ 
+	<script th:src="@{/javascripts/upload-foto-principal.js}"></script>
+
+</th:block>
+</html>

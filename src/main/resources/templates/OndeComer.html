@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/LayoutPadraoSite}">
+
+
+<section layout:fragment="conteudo">
+	<!-- Page Header -->
+	<div class="page-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h1>Onde Comer?</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<section class="page-section padding-30">
+	<div class="container">
+		<form method="GET" th:object="${gastronomiaFilter}">
+		
+			<div class="row">
+				<div class="form-group  col-md-6 col-lg-4">
+					<label for="tipo" class="control-label">Tipo</label>
+					<div class="bw-field-action">
+						<select id="tipoGastronomia" class="form-control"
+							th:field="*{tipoGastronomia}">
+							<option value="">Selecione o tipo</option>
+							<option th:each="tipo : ${tipos}" th:value="${tipo.codigo}"
+								th:text="${tipo.nome}"></option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group  col-md-6 col-lg-6">
+					<label class="control-label" for="nome">Nome</label> <input
+						type="text" class="form-control" id="nome" th:field="*{nome}" />
+				</div>
+				
+				<div class="form-group  col-md-2 col-lg-2  btn-pesquisa">
+					<button type="submit" class="btn  btn-primary"> 
+						<i class="fa fa-search"></i></button>
+				</div>
+			</div>
+			
+			<div th:each="gastronomia : ${pagina.conteudo}" class="row">
+					<!-- Content -->
+					
+				<div class="form-group col-md-6 col-lg-4">
+					<div class="row blog-listing ">						
+						<img class="img-thumbnail text-center" th:src="@{/fotos/thumbnail.{foto}(foto=${gastronomia.fotoOuMock})}" alt="" />
+					</div>
+				</div>
+					<div class="form-group col-md-6 col-lg-8">
+						<h2 th:text="${gastronomia.nome}"></h2>			
+						<p>
+							<span class="icons  address-onde-comer">
+  								<i class="fas fa-map-marker-alt"></i>
+							</span>
+								<strong class="d-none d-sm-inline">Endereço:</strong> 
+							<a href="#" th:href="|https://maps.google.com/?q=${gastronomia.formataEndereco()}, Guaíra PR|" target="_blank" th:text="${gastronomia.formataEndereco()}" class="text-decoration-none  infos"></a>
+						</p>
+						<p>
+						<span class="icons  telefone-onde-comer">
+  							<i class="fas fa-phone"></i>
+						</span>
+							<strong class="d-none d-sm-inline">Telefone:</strong> <span class="infos" th:text="|${gastronomia.contato.telefone} - ${gastronomia.contato.celular}|"></span>
+						</p>
+						<p>
+						<span class="icons  site-onde-comer">
+  							<i class="fas fa-laptop"></i>
+						</span>
+							<strong class="d-none d-sm-inline">Site:</strong> <a href="#" th:href="${gastronomia.site}" target="_blank" th:text="${gastronomia.site}" class="text-decoration-none  infos"></a>
+						</p>
+						<p>
+						<span class="icons email-onde-comer">
+  							<i class="fas fa-envelope-open-text"></i>
+						</span>
+							<strong class="d-none d-sm-inline">E-mail:</strong> <span class="infos" th:text="${gastronomia.contato.email}"></span>
+						</p>
+						<p>
+						<span class="icons tipo-onde-comer">
+  							<i class="fas fa-utensils"></i>
+						</span>
+							<strong class="d-none d-sm-inline">Tipo:</strong> 
+								<th:block th:each="tipo : ${gastronomia.tiposGastronomias}">
+									<span class="infos" th:text="|${tipo.nome}, |"></span>
+								</th:block>
+						</p>
+					</div>
+				</div>
+					<div th:if="${pagina.vazia}" class="col-md-6 col-lg-12">
+						<h4>Nenhum estabelecimento gastronômico encontrado</h4>			
+					</div>
+			</form>
+			</div>			
+			<div class="col-sm-12 text-center" th:if="${not pagina.vazia}">
+
+			<nav aria-label="Page navigation example">
+				<ul class="pagination"
+					th:with="paginaAtual=${pagina.atual}">
+					<li class="page-item" th:class="${pagina.primeira} ? disable">
+						<a th:href="${pagina.urlParaPagina(paginaAtual - 1)}"
+						th:remove="${pagina.primeira} ? all"><span>&laquo;</span></a>
+					</li>
+					<th:block th:each="p : ${#numbers.sequence(1, pagina.total)}"
+						th:with="numeroPagina=${p - 1}">
+						<li th:class="${paginaAtual == numeroPagina} ? active"><a
+							class="page-link" th:href="${pagina.urlParaPagina(numeroPagina)}">[[${p}]]</a>
+						</li>
+					</th:block>
+					<li class="page-item" th:class="${pagina.ultima} ? disable"><a
+						th:href="${pagina.urlParaPagina(paginaAtual + 1)}"
+						th:remove="${pagina.ultima} ? all"><span>&raquo;</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+</section>
+
+</html>

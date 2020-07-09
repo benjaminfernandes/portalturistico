@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Turismo Município de Guaíra">
+	<meta name="author" content="Benjamin Fernandes">
+
+<title>Guaíra turística</title>
+
+<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/vendors/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/style.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/custom.css}" />
+<link rel="shortcut icon" th:href="@{/images/logo_municipio_preto.png}" />
+
+</head>
+<body>
+
+	<div th:replace="layout/fragments-site/BarraNavegacao :: navbar"></div>
+	<section class="aw-layout-content  js-content" layout:fragment="conteudo"></section>
+	<div th:replace="layout/fragments-site/Footer :: layout-footer"></div>
+
+	<script th:src="@{/javascripts/vendors/jquery-3.4.1.min.js}"></script>
+	<script th:src="@{/javascripts/vendors/bootstrap.min.js}"></script>
+	<script th:src="@{/javascripts/menu.js}"></script>
+	<script th:src="@{/javascripts/vendors/ie10-viewport-bug-workaround.js}"></script>
+	<script src="https://kit.fontawesome.com/79258d25f6.js" crossorigin="anonymous"></script>
+	<th:block layout:fragment="javascript-extra"></th:block>
+</body>
+</html>

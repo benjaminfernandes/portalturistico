@@ -1,0 +1,502 @@
+/*CSS DO SITE*/
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  line-height: 1.2;
+}
+h1, .h1 {
+  font-size: 2.5rem;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+}
+
+h4, .h4 {
+  font-size: 1.5rem;
+  color: #ad1648;
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+body .feature-box-icon{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+.fa{
+	font-size: 25px;
+}
+
+
+.logo-principal > a > img{
+	height: 60px;
+	width: 180px;
+}
+
+.icons {
+	font-size: 2em; 
+	color: Tomato;
+}
+
+.address-onde-dormir{
+	margin-right: 10px;
+}
+
+.email-onde-dormir{
+	margin-right: 10px;
+}
+
+.telefone-onde-dormir{
+	margin-right: 4px;
+}
+
+.site-onde-dormir{
+	margin-right: 1px;
+}
+
+.address-onde-comer{
+	margin-right: 10px;
+}
+
+.email-onde-comer{
+	margin-right: 10px;
+}
+
+.telefone-onde-comer{
+	margin-right: 4px;
+}
+
+.site-onde-comer{
+	margin-right: 1px;
+}
+
+.tipo-onde-comer{
+	margin-right: 12px;
+}
+
+.nav-breadcrumb {
+	background-color: #fff;
+}
+.nav-breadcrumb .breadcrumb-item a {
+	text-decoration: none;
+	font-size: 1.2rem;
+}
+.nav-breadcrumb .active {
+	font-size: 1.2rem;
+}
+.title-underline-bottom {
+    height: 3px;
+    width: 100%;
+    background-color: #ad1648;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+}
+
+.img-atrativo-capa {
+	height: 300px; 
+	padding: 0px 20px 0px 20px;
+}
+
+@media (max-width: 992px) {
+	.infos{
+		color: black;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    	font-size: 1.1em;
+    	line-height: 1.42857143;
+    	color: #333;
+	}
+	.icons {
+	font-size: 1.1em; 
+	color: Tomato;
+	}
+	.title-section {
+    	font-size: 30px;
+	}
+	.page-section {
+    	width: 100%;
+    	display: block;
+   		position: relative;
+    	overflow: hidden;
+    	padding: 40px 0;
+	}
+	
+	.img-atrativo-capa {
+		height: 160px; 
+		padding: 0px 20px 0px 20px;
+		margin-bottom: 10px;
+	}
+}
+
+.portfolio {
+  margin-bottom: -30px;
+}
+
+.portfolio .portfolio-item {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  max-width: 35rem;
+  margin-bottom: 30px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.portfolio .portfolio-item .portfolio-item-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  background-color: rgba(173, 22, 72, 0.5);
+  border-radius: 180px;
+}
+
+.portfolio .portfolio-item .portfolio-item-caption:hover {
+  opacity: 0.5;
+}
+
+.portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
+  font-size: 1.5rem;
+}
+
+.portfolio-modal .portfolio-modal-title {
+  font-size: 2.25rem;
+  line-height: 2rem;
+}
+/*Começo portfolio atrativos*/
+.portfolio .portfolio-item .portfolio-item-caption-atrativo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  background-color: rgba(173, 22, 72, 0.5);
+}
+
+.portfolio .portfolio-item .portfolio-item-caption-atrativo:hover {
+  opacity: 0.5;
+}
+
+.portfolio .portfolio-item .portfolio-item-caption-atrativo .portfolio-item-caption-content {
+  font-size: 1.5rem;
+}
+/*Fim portfolio atrativos*/
+.m-0 {
+  margin: 0 !important;
+}
+
+.mt-0,
+.my-0 {
+  margin-top: 0 !important;
+}
+
+.mr-0,
+.mx-0 {
+  margin-right: 0 !important;
+}
+
+.mb-0,
+.my-0 {
+  margin-bottom: 0 !important;
+}
+
+.ml-0,
+.mx-0 {
+  margin-left: 0 !important;
+}
+
+.m-1 {
+  margin: 0.25rem !important;
+}
+
+.mt-1,
+.my-1 {
+  margin-top: 0.25rem !important;
+}
+
+.mr-1,
+.mx-1 {
+  margin-right: 0.25rem !important;
+}
+
+.mb-1,
+.my-1 {
+  margin-bottom: 0.25rem !important;
+}
+
+.ml-1,
+.mx-1 {
+  margin-left: 0.25rem !important;
+}
+
+.m-2 {
+  margin: 0.5rem !important;
+}
+
+.mt-2,
+.my-2 {
+  margin-top: 0.5rem !important;
+}
+
+.mr-2,
+.mx-2 {
+  margin-right: 0.5rem !important;
+}
+
+.mb-2,
+.my-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.ml-2,
+.mx-2 {
+  margin-left: 0.5rem !important;
+}
+
+.m-3 {
+  margin: 1rem !important;
+}
+
+.mt-3,
+.my-3 {
+  margin-top: 1rem !important;
+}
+
+.mr-3,
+.mx-3 {
+  margin-right: 1rem !important;
+}
+
+.mb-3,
+.my-3 {
+  margin-bottom: 1rem !important;
+}
+
+.ml-3,
+.mx-3 {
+  margin-left: 1rem !important;
+}
+
+.m-4 {
+  margin: 1.5rem !important;
+}
+
+.mt-4,
+.my-4 {
+  margin-top: 1.5rem !important;
+}
+
+.mr-4,
+.mx-4 {
+  margin-right: 1.5rem !important;
+}
+
+.mb-4,
+.my-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.ml-4,
+.mx-4 {
+  margin-left: 1.5rem !important;
+}
+
+.m-5 {
+  margin: 3rem !important;
+}
+
+.mt-5,
+.my-5 {
+  margin-top: 3rem !important;
+}
+
+.mr-5,
+.mx-5 {
+  margin-right: 3rem !important;
+}
+
+.mb-5,
+.my-5 {
+  margin-bottom: 3rem !important;
+}
+
+.ml-5,
+.mx-5 {
+  margin-left: 3rem !important;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 0.125rem solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.5rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
+.btn:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn:focus, .btn.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
+}
+
+.btn.disabled, .btn:disabled {
+  opacity: 0.65;
+}
+
+.btn-outline-light {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.btn-outline-light:hover {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.btn-outline-light:focus, .btn-outline-light.focus {
+  box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+}
+
+.btn-outline-light.disabled, .btn-outline-light:disabled {
+  color: #f8f9fa;
+  background-color: transparent;
+}
+
+.btn-outline-light:not(:disabled):not(.disabled):active, .btn-outline-light:not(:disabled):not(.disabled).active,
+.show > .btn-outline-light.dropdown-toggle {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.btn-outline-light:not(:disabled):not(.disabled):active:focus, .btn-outline-light:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-light.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+}
+.btn-social {
+  border-radius: 100%;
+  display: inline-flex;
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.25rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-light-nav {
+	background: linear-gradient(to bottom, #ad1648 0%, rgba(0, 0, 0, .075) 100%), url("../images/bg-header.png");
+    height: 100px;
+    background-color: #ad1648!important;
+}
+
+.btn-galeria:focus, .btn-galeria:active, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#image-gallery .modal-footer{
+  display: block;
+}
+
+.thumb{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/*Medias queries*/
+@media only screen and (min-width: 1200px) {
+	.img-carousel{
+			width: 2400px;
+			height: 550px;
+	}
+}
+@media only screen and (max-width: 1199px) {
+	.img-carousel{
+			width: 1200px;
+			height: 450px;
+	}
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (max-width: 991px) {
+	.img-carousel{
+			width: 1199px;
+			height: 450px;
+	}
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	.img-carousel{
+			width: 991px;
+			height: 350px;
+	}
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (max-width: 575px) {
+	.img-carousel{
+			width: 767px;
+			height: 300px;
+	}
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+		.img-carousel{
+			width: 600px;
+			height: 300px;
+		}
+		.img-historia {
+			width: 600px;
+			height: 150px;
+		}
+		.img-atrativo-capa {
+		width: 100%; 
+		padding: 0px;
+		margin-bottom: 10px;
+		}
+	}
+}
+

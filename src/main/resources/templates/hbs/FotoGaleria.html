@@ -1,0 +1,11 @@
+<script id="foto-galeria" type="text/x-handlebars-template">
+   
+	   <div class="col-md-4  text-center  js-foto-galeria" id="{{{codigo}}}">
+		  <a href="#" class="thumbnail"> 
+		  <img th:src="@{/fotos/{{foto}}}" />
+		  </a>
+		  <button type="button" class="btn  btn-link  js-remove-foto-galeria" id="{{{codigo}}}">
+		  	<span class="glyphicon  glyphicon-remove"></span>
+		  </button>
+	   </div>
+</script>

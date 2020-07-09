@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/LayoutPadraoSite}">
+	
+<section layout:fragment="conteudo">
+	<!-- Page Header -->
+	<div class="page-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h1>Locais Turísticos</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+<section class="page-section portfolio padding-30">
+	<div class="container">
+		<div class="row">
+	    	<nav aria-label="breadcrumb" class="col-xs-12 col-sm-12 col-md-6">
+ 				<ol class="breadcrumb nav-breadcrumb">
+    				<li class="breadcrumb-item"><a th:href="@{/}">Início</a></li>
+    				<li class="breadcrumb-item active" aria-current="page">Locais turísticos?</li>
+  				</ol>
+			</nav>
+		</div>
+		
+		<div class="row">
+		<div class="col-md-6 col-lg-6">
+    		<h4 class="text-center">Igreja Nuestro Señor del Perdón</h4>
+          <div class="portfolio-item mx-auto">
+            <a href="#">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+              <i class="fas fa-plus fa-3x"></i>
+              </div>             
+            </div>
+            </a>
+            <img class="img-fluid" th:src="@{/images/atrativos/igreja.jpg}" alt="">
+          </div>
+    	</div>
+    	
+    	<div class="col-md-6 col-lg-6">
+    		<h4 class="text-center">Cicloturismo</h4>
+          <div class="portfolio-item mx-auto">
+            <a href="#">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+              <i class="fas fa-plus fa-3x"></i>
+              </div>             
+            </div>
+            </a>
+            <img class="img-fluid" th:src="@{/images/atrativos/mtb.jpg}" alt="">
+          </div>
+    	</div>
+    	
+		</div>
+	</div>
+</section>
+</section>
+
+</html>

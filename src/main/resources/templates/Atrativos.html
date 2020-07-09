@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/LayoutPadraoSite}">
+	
+<section layout:fragment="conteudo">
+	<!-- Page Header -->
+	<div class="page-header">
+		<div class="container">
+		<div class="row">
+	    	<nav aria-label="breadcrumb" class="col-xs-12 col-sm-12 col-md-6">
+ 				<ol class="breadcrumb nav-breadcrumb">
+    				<li class="breadcrumb-item"><a th:href="@{/}">Início</a></li>
+    				<li class="breadcrumb-item active" aria-current="page">Atrativos</li>
+  				</ol>
+			</nav>
+		</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h1>Atrativos</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+<section class="page-section portfolio padding-30">
+	<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-lg-4" th:each="atrativo : ${pagina.conteudo}">
+    		<h4 class="text-center" th:text="${atrativo.nome}"></h4>
+          <div class="portfolio-item mx-auto text-center">
+            <a th:href="@{/ListaAtrativos/{codigo}(codigo=${atrativo.codigo})}">
+            <div class="portfolio-item-caption-atrativo d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+              <i class="fas fa-plus fa-3x"></i>
+              </div>             
+            </div>
+            </a>
+            <img class="img-fluid" th:src="@{/fotos/thumbnail.{foto}(foto=${atrativo.fotoChamada})}" alt="">
+          </div>
+    </div>
+       	
+	</div>
+	</div>
+</section>
+</section>
+
+</html>

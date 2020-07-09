@@ -1,0 +1,88 @@
+/* CSS SISTEMA */
+/* Upload */
+.py-upload {
+	padding: 15px;
+	border: 1px dashed #ddd;
+	border-radius: 4px;
+	background: #fafafa;
+	text-align: center;
+}
+
+.py-upload-form-file {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 1px;
+}
+
+.py-upload-form-file>input[type=file] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer;
+	font-size: 500px;
+}
+
+
+/* Tabela Simples */
+.py-tabela-simples {
+    margin-top: 15px;
+}
+
+.py-tabela-simples table tr th {
+    border-bottom-width: 1px;
+}
+
+.py-tabela-simples table tr td {
+    border-top: none;
+    border-bottom: 1px solid #e7eaec;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.checkbox-inline input[type="checkbox"] {
+  margin-left: -20px;
+}
+
+.checkbox-inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  cursor: pointer;
+}
+.checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 10px;
+}
+.checkbox-inline {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 7px;
+}
+
+.py-codigo-table {
+	width: 90px;
+}
+
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  overflow: auto;
+  resize: vertical;
+  
+  border-radius: 5px;
+}
+
+textarea.form-control {
+  height: auto;
+}
+

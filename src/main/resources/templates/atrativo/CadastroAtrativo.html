@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/LayoutPadrao}"
+	xmlns:portal="http://ti.guaira.pr.gov.br"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
+	
+<head>
+	<title>Cadastro Atrativo</title>
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+	<link href="https://unpkg.com/quill-better-table@1.2.8/dist/quill-better-table.css" rel="stylesheet">
+</head>
+<section layout:fragment="conteudo">
+	<div class="page-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-10">
+					<h1 th:if="${atrativo.novo}">Cadastro de atrativos</h1>
+					<h1 th:unless="${atrativo.novo}"
+						th:text="|Edição - ${atrativo.nome}|"></h1>
+				</div>
+				<div class="col-xs-2">
+					<div class="aw-page-header-controls">
+						<a class="btn btn-default" th:href="@{/atrativos}"> <i
+							class="glyphicon glyphicon-search"></i> <span
+							class="hidden-xs  hidden-sm">Pesquisa</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<form method="POST" th:object="${atrativo}" class="form-vertical  js-form-loading"
+			th:action="${atrativo.novo} ? @{/atrativos/novo} : @{/atrativos/{codigo}(codigo=${atrativo.codigo})}">
+			
+			<input type="hidden" th:field="*{codigo}" />
+			<input type="hidden" th:field="*{descricao}"/>
+			<input type="hidden" th:field="*{descricaoHtml}"/>
+			<input type="hidden" th:field="*{horario}"/>
+			<input type="hidden" th:field="*{horarioHtml}"/>
+			
+			<div layout:insert="fragments/Mensagem"></div>
+			<div layout:insert="fragments/MensagemErro"></div>
+			
+			<div class="row  bw-required">
+				<div class="col-sm-12  form-group" portal:classforerror="nome">
+					<label for="nome" class="control-label">Nome</label> <input
+						id="nome" type="text" class="form-control" th:field="*{nome}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10">
+					<h1>Endereço</h1>
+				</div>
+			</div>
+			<div class="row  bw-required">
+				<div class="col-sm-8  form-group"
+					portal:classforerror="endereco.logradouro">
+					<label for="logradouro" class="control-label">Logradouro</label> <input
+						id="logradouro" type="text" class="form-control"
+						th:field="*{endereco.logradouro}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="endereco.numero">
+					<label for="numero" class="control-label">Número</label> <input
+						id="numero" type="text" class="form-control"
+						th:field="*{endereco.numero}" />
+				</div>
+			</div>
+			<div class="row  bw-required">
+				<div class="col-sm-4  form-group"
+					portal:classforerror="endereco.bairro">
+					<label for="bairro" class="control-label">Bairro</label> <input
+						id="bairro" type="text" class="form-control"
+						th:field="*{endereco.bairro}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="endereco.cep">
+					<label for="cep" class="control-label">CEP</label> <input id="cep"
+						type="text" class="form-control  js-cep"
+						th:field="*{endereco.cep}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="endereco.complemento">
+					<label for="complemento" class="control-label">Complemento</label>
+					<input id="complemento" type="text" class="form-control"
+						th:field="*{endereco.complemento}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10">
+					<h1>Contato</h1>
+				</div>
+			</div>
+			<div class="row  bw-required">
+				<div class="col-sm-4  form-group"
+					portal:classforerror="contato.telefone">
+					<label for="telefone" class="control-label">Telefone</label> <input
+						id="telefone" type="text" class="form-control  js-phone-number"
+						th:field="*{contato.telefone}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="contato.celular">
+					<label for="celular" class="control-label">Celular</label> <input
+						id="celular" type="text" class="form-control  js-cel-number"
+						th:field="*{contato.celular}" />
+				</div>
+				<div class="col-sm-4  form-group"
+					portal:classforerror="contato.email">
+					<label for="email" class="control-label">E-mail</label> <input
+						id="email" type="text" class="form-control"
+						th:field="*{contato.email}" />
+				</div>
+			</div>
+			
+		<div class="row bw-required">
+			<div class="form-group  col-sm-12" portal:classforerror="descricao">
+				<label for="descricao" class="control-label">Descricao</label>
+				<div class="descricao" id="descricao" style="height: 500px"></div>
+			</div>
+		</div>
+		
+		<div class="row bw-required">
+			<div class="form-group  col-sm-12" portal:classforerror="horario">
+				<label for="horario" class="control-label">Horário de funcionamento</label>
+				<div class="horario" id="horario" style="height: 100px"></div>
+			</div>
+		</div>
+		
+		<div class="row bw-required">
+				<div class="form-group  col-sm-12" portal:classforerror="fotoChamada">
+					<input type="hidden" th:field="*{contentTypeChamada}"> 
+					<input type="hidden" th:field="*{fotoChamada}">
+					<input type="hidden" th:field="*{novaFotoChamada}"> 
+					
+					<label class="control-label">Foto Chamada (Esta foto ficará na página de atrativos)</label>
+					<div class="js-container-foto-chamada" th:attr="data-url-fotos=@{/fotos}">
+						<div id="upload-drop-Chamada" class="py-upload">
+							<i class="glyphicon glyphicon-cloud-upload"></i> <span>Arraste
+								a foto aqui ou</span> <a class="py-upload-form-file">selecione <input
+								id="upload-select" type="file" accept=".jpg, .jpeg, .png" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row bw-required">
+				<div class="form-group  col-sm-12" portal:classforerror="fotoChamada">
+					<input type="hidden" th:field="*{contentTypeCapa}"> 
+					<input type="hidden" th:field="*{fotoCapa}"> 
+					<input type="hidden" th:field="*{novaFotoCapa}">
+					
+					<label class="control-label">Foto de capa (Esta foto ficará em destaque na página descritiva do atrativo)</label>
+					<div class="js-container-foto-capa" th:attr="data-url-fotos=@{/fotos}">
+						<div id="upload-drop-capa" class="py-upload">
+							<i class="glyphicon glyphicon-cloud-upload"></i> 
+								<span>Arraste a foto aqui ou</span> 
+								<a class="py-upload-form-file">selecione 
+									<input id="upload-select-capa" type="file" accept=".jpg, .jpeg, .png" />
+								</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group  col-sm-12">
+				
+					<input type="hidden" th:field="*{fotosGaleria}">
+					
+					<label class="control-label">Fotos para a galeria</label>
+					<div class="js-container-foto-galeria" th:attr="data-url-fotos=@{/fotos}">
+						<div id="upload-drop-galeria" class="py-upload">
+							<i class="glyphicon glyphicon-cloud-upload"></i> 
+								<span>Arraste a foto aqui ou</span> 
+								<a class="py-upload-form-file">selecione 
+									<input id="upload-select-galeria" type="file" accept=".jpg, .jpeg, .png" />
+								</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		<div class="form-group">
+				<button class="btn  btn-primary  js-btn-submit" type="submit">Salvar</button>
+		</div>
+		</form>
+	</div>
+	<th:block th:include="hbs/FotoHospedagem"></th:block>
+	<th:block th:include="hbs/FotoCapa"></th:block>
+	<th:block th:include="hbs/FotoGaleria"></th:block>
+</section>
+<th:block layout:fragment="javascript-extra">
+ 
+	<script th:src="@{/javascripts/upload-foto-atrativo.js}"></script>
+	<script th:src="@{/javascripts/upload-foto-capa-atrativo.js}"></script>
+	<script th:src="@{/javascripts/upload-foto-galeria.js}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+	<script th:src="@{/javascripts/portal.text-editor.js}"></script>
+	
+</th:block>
+</html>

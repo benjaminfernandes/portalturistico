@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/LayoutPadrao}"
+	xmlns:portal="http://turismo.guaira.pr.gov.br"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
+
+<head>
+<title>Pesquisa de atrativos</title>
+</head>	
+<section layout:fragment="conteudo">
+	<div class="page-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-10">
+					<h1>Pesquisa de atrativos</h1>
+				</div>
+				<div class="col-xs-2">
+					<div class="aw-page-header-controls">
+						<a class="btn btn-default" th:href="@{/atrativos/novo}"> <i
+							class="glyphicon  glyphicon-plus-sign"></i> <span
+							class="hidden-xs  hidden-sm">Novo</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<form method="GET" th:object="${atrativoFilter}">
+			<div class="row">
+				<div class="form-group  col-sm-12">
+					<label class="control-label" for="nome">Nome</label> 
+						<input class="form-control" th:field="*{nome}" />
+				</div>
+			</div>
+			<button type="submit" class="btn  btn-primary">Pesquisar</button>
+		</form>
+		
+		<div class="table-responsive  py-tabela-simples">
+			<table class="table  table-hover">
+				<thead>
+					<tr>
+						<th class="text-center">Código</th>
+						<th>
+							<portal:order page="${pagina}" field="nome" text="Nome"/>
+						</th>
+						<th class="text-center">Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="atrativo : ${pagina.conteudo}">
+						<td class="text-center py-codigo-table" th:text="${atrativo.codigo}"></td>
+						<td th:text="${atrativo.nome}"></td>
+						<td class="text-center">
+							<a class="btn  btn-link  btn-xs  js-tooltip" title="Editar" 
+							 th:href="@{/atrativos/{codigo}(codigo=${atrativo.codigo})}"> 
+								<i class="glyphicon glyphicon-pencil"></i>
+							</a>
+							<a class="btn  btn-link  btn-xs  js-tooltip  js-exclusao-btn" title="Excluir" href="#"
+							th:attr="data-codigo=${atrativo.codigo}, data-url=@{/atrativos/{codigo}(codigo=${atrativo.codigo})}, 
+							data-objeto=${atrativo.nome}">
+								<i class="glyphicon glyphicon-remove"></i>
+							</a>
+						</td>
+					</tr>
+					
+					<tr th:if="${pagina.vazia}">
+						<td colspan="4">Nenhum atrativo encontrado!</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="col-sm-12 text-center" th:if="${not pagina.vazia}">
+
+			<nav aria-label="Page navigation example">
+				<ul class="pagination pagination-sm"
+					th:with="paginaAtual=${pagina.atual}">
+					<li class="page-item" th:class="${pagina.primeira} ? disable">
+						<a th:href="${pagina.urlParaPagina(paginaAtual - 1)}"
+						th:remove="${pagina.primeira} ? all"><span>&laquo;</span></a>
+					</li>
+					<th:block th:each="p : ${#numbers.sequence(1, pagina.total)}"
+						th:with="numeroPagina=${p - 1}">
+						<li th:class="${paginaAtual == numeroPagina} ? active"><a
+							class="page-link" th:href="${pagina.urlParaPagina(numeroPagina)}">[[${p}]]</a>
+						</li>
+					</th:block>
+					<li class="page-item" th:class="${pagina.ultima} ? disable"><a
+						th:href="${pagina.urlParaPagina(paginaAtual + 1)}"
+						th:remove="${pagina.ultima} ? all"><span>&raquo;</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</section>
+
+</html>
